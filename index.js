@@ -4,12 +4,17 @@ http.createServer(runserver).listen(5000);
 let brandJSON = require('../Tarea1-Coches/brand.json');
 
 function runserver(req,res) {
+// ####aqui muestro el json
   // if( req.method === 'GET' ) {
   //   res.end(JSON.stringify(brandJSON));
   // } 
   // if( req.method === 'DELETE') {
   //   res.end(JSON.stringify(brandJSON));
   // }
+
+// ############
+
+// #######muestro la url
   if(req.url === '/api/v1/cars') {
     if(req.method === 'GET') {
       res.end(JSON.stringify({
@@ -22,8 +27,20 @@ function runserver(req,res) {
       success: false,
       error: 'Error',
       data: null
-    }));
+    }));  
+    console.log(req.url);
+// #######muestro la url
 
+// #######pasar a un formato csv
+if(req.url === '/api/v1/cars') {
+  let h = Object.keys(brandJSON[0]).join(',')+="\n";
+  let body = '';
+  brandJSON.forEach( o => {
+    body+=Object.keys(o).map( )
+  });
+};  
+
+// ######pasar a un formato csv
   
-  console.log(req.url);
+
 }
