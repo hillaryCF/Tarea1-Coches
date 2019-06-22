@@ -32,15 +32,18 @@ function runserver(req,res) {
 // #######muestro la url
 
 // #######pasar a un formato csv
-if(req.url === '/api/v1/cars') {
-  let h = Object.keys(brandJSON[0]).join(',')+="\n";
+if(req.url === '/api/v1/cars/key') {
+  let h = Object.keys(brandJSON[0]).join(',')+ "\n";
   let body = '';
-  brandJSON.forEach( o => {
-    body+=Object.keys(o).map( )
+  brandJSON.forEach(o => {
+    body += Object.keys(0).map(k => o[k].join(',')+ "\n");
   });
+  h += body;
+  res.end(h);
 };  
 
 // ######pasar a un formato csv
   
 
 }
+// rest.setHeader('Access-Control-Allow-Origin','*');
